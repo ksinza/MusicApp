@@ -1,4 +1,5 @@
 ﻿using System;
+using MusicAppXamarin.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace MusicAppXamarin
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new LandingPage());
         }
 
         protected override void OnStart()

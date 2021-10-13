@@ -13,5 +13,19 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="Plugin.MediaManager.Forms" Version="1.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Xamarin.Forms.PancakeView" />
+    <None Remove="Plugin.MediaManager.Forms" />
+    <None Remove="View\" />
+    <None Remove="Model\" />
+    <None Remove="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
+    <Folder Include="Model\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 </Project>

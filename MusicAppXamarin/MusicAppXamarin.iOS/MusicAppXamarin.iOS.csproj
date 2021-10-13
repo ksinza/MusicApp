@@ -125,6 +125,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>2.3.0.759</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -132,5 +135,15 @@
       <Project>{143024CD-B835-4D46-B122-1D7E476C56E2}</Project>
       <Name>MusicAppXamarin</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.png" />
+    <BundleResource Include="Resources\banner.png" />
+    <BundleResource Include="Resources\next.png" />
+    <BundleResource Include="Resources\pause.png" />
+    <BundleResource Include="Resources\play.png" />
+    <BundleResource Include="Resources\playBlack.png" />
+    <BundleResource Include="Resources\previous.png" />
+    <BundleResource Include="Resources\share.png" />
   </ItemGroup>
 </Project>

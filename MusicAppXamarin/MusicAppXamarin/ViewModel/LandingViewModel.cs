@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using MusicAppXamarin.Model;
+using MusicAppXamarin.View;
 using Xamarin.Forms;
 
 namespace MusicAppXamarin.ViewModel
@@ -55,11 +56,11 @@ namespace MusicAppXamarin.ViewModel
         {
             if(selectedMusic != null)
             {
-                //var viewModel = new PlayerViewModel(selectedMusic, musicList);
-                //var playerPage = new PlayerPage { BindingContext = viewModel };
+                var viewModel = new PlayerViewModel(selectedMusic, musicList);
+                var playerPage = new PlayerPage { BindingContext = viewModel };
 
-                //var navigation = Application.Current.MainPage as NavigationPage;
-                //navigation.PushAsync(playerPage, true);
+                var navigation = Application.Current.MainPage as NavigationPage;
+                navigation.PushAsync(playerPage, true);
             }
         }
 

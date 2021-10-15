@@ -58,7 +58,7 @@
                             <pv:GradientStop Color="#F3A283" Offset="1" />
                         </pv:GradientStopCollection>
                     </pv:PancakeView.BackgroundGradientStops>
-                    <Image Source="play.png" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <ImageButton Source="play.png" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center" VerticalOptions="Center"  Command="{Binding SelectionCommand}"/>
                 </pv:PancakeView>
             </StackLayout>
             <CollectionView Grid.Row="1" Margin="20,0" ItemsSource="{Binding MusicList}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"

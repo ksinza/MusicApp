@@ -68,6 +68,20 @@ namespace MusicAppXamarin.ViewModel
 
 
             }
+            else
+            {
+                //if (recentMusic != null)
+                //{
+                //    selectedMusic = recentMusic;
+                //    var viewModel = new PlayerViewModel(selectedMusic, musicList);
+                //    var playerPage = new PlayerPage { BindingContext = viewModel };
+                //    HelperVariables.Cover = selectedMusic.CoverImage;
+                //    HelperVariables.Url = selectedMusic.Url;
+                //    var navigation = Application.Current.MainPage as NavigationPage;
+                //    navigation.PushAsync(playerPage, true);
+                //    HelperVariables.MusicCurrent = selectedMusic;
+                //}
+            }
         }
 
 
@@ -89,6 +103,7 @@ namespace MusicAppXamarin.ViewModel
             if (HelperVariables.MusicCurrent != null)
             {
                 RecentMusic = HelperVariables.MusicCurrent;
+                selectedMusic = HelperVariables.MusicCurrent;
             }
 
         });

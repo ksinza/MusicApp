@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MediaManager;
+using MusicAppXamarin.Helper;
 using MusicAppXamarin.Model;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -157,6 +158,7 @@ namespace MusicAppXamarin.ViewModel
                 await CrossMediaManager.Current.Stop();
                 IsPlaying = false; ;
                 SelectedMusic = musicList[currentIndex + 1];
+                HelperVariables.MusicCurrent = SelectedMusic;
                 PlayMusic(selectedMusic);
             }
         }
@@ -170,6 +172,7 @@ namespace MusicAppXamarin.ViewModel
                 await CrossMediaManager.Current.Stop();
                 IsPlaying = false; ;
                 SelectedMusic = musicList[currentIndex - 1];
+                HelperVariables.MusicCurrent = SelectedMusic;
                 PlayMusic(selectedMusic);
             }
         }

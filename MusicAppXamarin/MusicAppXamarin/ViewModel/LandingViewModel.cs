@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using MusicAppXamarin.Helper;
 using MusicAppXamarin.Model;
 using MusicAppXamarin.View;
 using Xamarin.Forms;
@@ -14,6 +15,8 @@ namespace MusicAppXamarin.ViewModel
 
             musicList = GetMusics();
             recentMusic = musicList.Where(x => x.IsRecent == true).FirstOrDefault();
+            HelperVariables.Cover = recentMusic.CoverImage;
+            HelperVariables.Url = recentMusic.Url;
         }
 
         ObservableCollection<Music> musicList;
@@ -57,9 +60,13 @@ namespace MusicAppXamarin.ViewModel
             {
                 var viewModel = new PlayerViewModel(selectedMusic, musicList);
                 var playerPage = new PlayerPage { BindingContext = viewModel };
-
+                HelperVariables.Cover = selectedMusic.CoverImage;
+                HelperVariables.Url = selectedMusic.Url;
                 var navigation = Application.Current.MainPage as NavigationPage;
                 navigation.PushAsync(playerPage, true);
+                HelperVariables.MusicCurrent = selectedMusic;
+
+
             }
         }
 
@@ -76,6 +83,22 @@ namespace MusicAppXamarin.ViewModel
             };
         }
 
-        
+        public ICommand PageAppearingCommand => new Command(async () => {
+
+            Console.WriteLine("appear");
+            if (HelperVariables.MusicCurrent != null)
+            {
+                RecentMusic = HelperVariables.MusicCurrent;
+            }
+
+        });
+
+        public ICommand PageDisappearingCommand => new Command(async () => {
+
+            Console.WriteLine("disappear");
+
+        });
+
+
     }
 }

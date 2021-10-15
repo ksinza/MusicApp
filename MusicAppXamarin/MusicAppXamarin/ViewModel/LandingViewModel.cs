@@ -16,17 +16,15 @@ namespace MusicAppXamarin.ViewModel
             recentMusic = musicList.Where(x => x.IsRecent == true).FirstOrDefault();
         }
 
-        #region Properties
         ObservableCollection<Music> musicList;
-        public ObservableCollection<Music> MusicList {
+        public ObservableCollection<Music> MusicList
+        {
             get { return musicList; }
-
             set
             {
                 musicList = value;
                 OnPropertyChanged();
             }
-
         }
 
         private Music recentMusic;
@@ -35,26 +33,27 @@ namespace MusicAppXamarin.ViewModel
             get { return recentMusic; }
             set
             {
-                recentMusic=value;
+                recentMusic = value;
                 OnPropertyChanged();
             }
-
         }
+
         private Music selectedMusic;
         public Music SelectedMusic
         {
-            get {return selectedMusic; }
+            get { return selectedMusic; }
             set
             {
                 selectedMusic = value;
                 OnPropertyChanged();
             }
         }
+
         public ICommand SelectionCommand => new Command(PlayMusic);
 
         private void PlayMusic()
         {
-            if(selectedMusic != null)
+            if (selectedMusic != null)
             {
                 var viewModel = new PlayerViewModel(selectedMusic, musicList);
                 var playerPage = new PlayerPage { BindingContext = viewModel };
@@ -64,19 +63,19 @@ namespace MusicAppXamarin.ViewModel
             }
         }
 
+
         private ObservableCollection<Music> GetMusics()
         {
             return new ObservableCollection<Music>
             {
-                new Music { Title = "Beach Walk", Artist = "Unicorn Heads", Url = "https://devcrux.com/wp-content/uploads/Beach_Walk.mp3", CoverImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRU6FVly4jMTD3AKB_sHxqPofJVQwqqUj5peEvgA1H4XegM3uJ7&usqp=CAU", IsRecent = true},
-                new Music { Title = "I'll Follow You", Artist = "Density & Time", Url = "https://devcrux.com/wp-content/uploads/I_ll_Follow_You.mp3", CoverImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRm-su97lHFGZrbR6BkgL32qbzZBj2f3gKGrFR0Pn66ih01SyGj&usqp=CAU"},
-                new Music { Title = "Ancient", Artist = "Density & Time", Url = "https://devcrux.com/wp-content/uploads/Ancient.mp3"},
-                new Music { Title = "News Room News", Artist = "Spence", Url = "https://devcrux.com/wp-content/uploads/Cats_Searching_for_the_Truth.mp3"},
-                new Music { Title = "Bro Time", Artist = "Nat Keefe & BeatMowe", Url = "https://devcrux.com/wp-content/uploads/Bro_Time.mp3"},
-                new Music { Title = "Cats Searching for the Truth", Artist = "Nat Keefe & Hot Buttered Rum", Url = "https://devcrux.com/wp-content/uploads/Cats_Searching_for_the_Truth.mp3"}
+                new Music { Title = "Mia", Artist = "Bad bunny feat drake", Url = "https://firebasestorage.googleapis.com/v0/b/kevin-f830b.appspot.com/o/Bad%20Bunny%20feat.%20Drake%20-%20Mia%20(%20Video%20Oficial%20).mp3?alt=media&token=02ef1b46-c4aa-4c91-81e4-23e95acd4a53", CoverImage = "https://i.ytimg.com/vi/OSUxrSe5GbI/maxresdefault.jpg", IsRecent = true},
+                new Music { Title = "You are", Artist = "Charlie Wilson", Url = "https://firebasestorage.googleapis.com/v0/b/kevin-f830b.appspot.com/o/Charlie%20Wilson%20-%20You%20Are%20(HQ)%20(Lyrics).mp3?alt=media&token=e074cda8-81ff-48ca-a3b9-3476f9259499", CoverImage = "https://images.genius.com/7638611b82808f38c9fd484e824f97da.600x600x1.jpg"},
+                new Music { Title = "Quiero decirte", Artist = "Hermanos Lebron", Url = "https://firebasestorage.googleapis.com/v0/b/kevin-f830b.appspot.com/o/Quiero%20decirte%20-%20Hermanos%20Lebro%CC%81n%2Bletra.mp3?alt=media&token=9b954921-1eae-4067-8044-a9f6e9e4fb0a", CoverImage = "https://caracoltv.brightspotcdn.com/dims4/default/353580b/2147483647/strip/true/crop/640x336+0+45/resize/1200x630!/quality/90/?url=https%3A%2F%2Fcaracol-brightspot.s3-us-west-2.amazonaws.com%2Fassets%2Fnoticias%2Flebron_0.jpg"},
+                new Music { Title = "Rolex", Artist = "Ayo & Teo ", Url = "https://firebasestorage.googleapis.com/v0/b/kevin-f830b.appspot.com/o/rolly%20rolly%20ayo%20and%20teo.mp3?alt=media&token=457d0cfb-5dfd-45fb-828b-d6887cd7dd22", CoverImage="https://www.famousbirthdays.com/group_images/medium/ayo-teo-dancecrew.jpg"},
+                new Music { Title = "Mucho coro", Artist = "El Dek", Url = "https://firebasestorage.googleapis.com/v0/b/kevin-f830b.appspot.com/o/muchocoro.mp3?alt=media&token=eed229d5-f1df-4316-9e51-eaceb893274a" , CoverImage="https://is5-ssl.mzstatic.com/image/thumb/Music124/v4/63/f1/a4/63f1a45b-1836-db2f-afe9-fae781b23065/0.jpg/400x400cc.jpg"},
             };
         }
 
-        #endregion
+        
     }
 }

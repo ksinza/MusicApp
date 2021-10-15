@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace MusicAppXamarin.ViewModel
 {
-    public class BaseViewModel
+    public class BaseViewModel : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -13,8 +13,6 @@ namespace MusicAppXamarin.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        public BaseViewModel()
-        {
-        }
+        
     }
 }
